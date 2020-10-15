@@ -1,0 +1,10 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks"
+import ProductButton from "./"
+
+<Meta title="360 Menu/Product Button" component={ProductButton} />
+
+<Story name="default">
+  <ProductButton handleAddProduct={() => alert("Button clicked")}>
+    +
+  </ProductButton>
+</Story>

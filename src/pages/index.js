@@ -1,14 +1,22 @@
-import React from 'react'
-import Heading from '../components/Heading'
-import Icon from '../components/Icon'
-import ProductName from '../components/ProductName'
+import React, { useState } from "react"
+import "../components/Styles/index.css"
 
-export default function Home() {
+import Cart from "../components/Cart"
+import Products from "../components/Products"
+
+import CartContext from "../context/Cart"
+
+const Home = () => {
+  const [cart, setCart] = useState([])
+  const [total, setTotal] = useState(0)
   return (
-    <>
-      <Heading>Hello world</Heading>
-      <Icon name="trash" size="medium" />
-      <ProductName>Gyros</ProductName>
-    </>
+    <div className="homeGrid">
+      <CartContext.Provider value={{ total, setTotal, cart, setCart }}>
+        <Products />
+        <Cart />
+      </CartContext.Provider>
+    </div>
   )
 }
+
+export default Home
