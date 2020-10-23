@@ -1,40 +1,63 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
+import Drinks from "./assets/drinks"
+import Dessert from "./assets/desserts"
+import Panini from "./assets/panini"
+import Pizza from "./assets/pizza"
+import Pasta from "./assets/pasta"
+import Starter from "./assets/starter"
+import Salad from "./assets/salad"
+import Logo from "./assets/logo"
+import Waiter from "./assets/waiter"
 
 const Icon = ({ name, size }) => {
-  let content
-  switch (name) {
-    case 'heart':
-      content = '♥️'
+  let iconSize
+  switch (size) {
+    case "small":
+      iconSize = 10
       break
-    case 'drinks':
-      content = '🍸'
+    case "medium":
+      iconSize = 16
       break
-    case 'copy':
-      content = '🆇'
+    case "large":
+      iconSize = 24
       break
-    case 'plus':
-      content = '➕'
-      break
-
-    case 'trash':
-      content = '🗑'
+    case "xlarge":
+      iconSize = 40
       break
 
     default:
       break
   }
 
-  let iconSize
-  switch (size) {
-    case 'small':
-      iconSize = 10
+  let content
+  switch (name) {
+    case "DESSERT":
+      content = <Dessert width={`${iconSize}px`} height={`${iconSize}px`} />
       break
-    case 'medium':
-      iconSize = 16
+    case "DRINK":
+      content = <Drinks width={`${iconSize}px`} height={`${iconSize}px`} />
       break
-    case 'large':
-      iconSize = 24
+    case "PANINI":
+      content = <Panini width={`${iconSize}px`} height={`${iconSize}px`} />
+      break
+    case "PIZZA":
+      content = <Pizza width={`${iconSize}px`} height={`${iconSize}px`} />
+      break
+    case "PASTA":
+      content = <Pasta width={`${iconSize}px`} height={`${iconSize}px`} />
+      break
+    case "STARTER":
+      content = <Starter width={`${iconSize}px`} height={`${iconSize}px`} />
+      break
+    case "SALAD":
+      content = <Salad width={`${iconSize}px`} height={`${iconSize}px`} />
+      break
+    case "LOGO":
+      content = <Logo width={`${iconSize}px`} height={`${iconSize}px`} />
+      break
+    case "WAITER":
+      content = <Waiter width={`${iconSize}px`} height={`${iconSize}px`} />
       break
 
     default:
@@ -45,9 +68,9 @@ const Icon = ({ name, size }) => {
     <div
       style={{
         fontSize: `${iconSize}px`,
-        backgroundColor: 'salmon',
         height: `${iconSize}px`,
         width: `${iconSize}px`,
+        color: "white",
       }}
     >
       {content}
@@ -56,18 +79,12 @@ const Icon = ({ name, size }) => {
 }
 
 Icon.propTypes = {
-  /**
-   * name of the icon
-   */
   name: PropTypes.string.isRequired,
-  /**
-   * size of the icon to display
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  size: PropTypes.oneOf(["small", "medium", "large", "xlarge"]),
 }
 
 Icon.defaultProps = {
-  size: 'medium',
+  size: "medium",
 }
 
 export default Icon

@@ -1,15 +1,11 @@
 import React, { useContext, useState } from "react"
 import CartContext from "../../context/Cart"
 
-const currencyOptions = {
-  minimumFractionDigits: 1,
-  maximumFractionDigits: 1,
-}
 function getTotal(total) {
   if (total < 0) {
     total *= -1
   }
-  return total.toLocaleString(undefined, currencyOptions)
+  return total
 }
 
 const Cart = () => {
@@ -20,13 +16,13 @@ const Cart = () => {
     setCart(current => current.filter(index => index !== product))
     setTotal(current => current - product.price)
   }
+
   const order = () => {
     if (pastOrders.length === 0) {
       setPastOrders(cart)
     } else {
       setPastOrders(current => [...current, cart].flat())
     }
-
     setCart([])
   }
   console.log(pastOrders)

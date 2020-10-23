@@ -1,10 +1,11 @@
 .homeGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 95px 1.3fr .7fr;
   font-family: sans-serif;
 }
 .productsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-right: 50px;
+  color: #222222;
 }

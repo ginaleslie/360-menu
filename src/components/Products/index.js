@@ -1,47 +1,54 @@
 import React, { useState, useContext } from "react"
-import { menu } from "../Data"
 import CartContext from "../../context/Cart"
+import { useQuery, QueryCache, ReactQueryCacheProvider } from "react-query"
+import Categories from "../Categories"
 import "../Styles/index.css"
+import CategoryContext from "../../context/Category"
+import ProductName from "../ProductName"
+import Price from "../Price"
+import { ProductCard, ProductCardGrid } from "./styles"
 
-const Products = () => {
-  const { setTotal } = useContext(CartContext)
-  const { setCart } = useContext(CartContext)
+const queryCache = new QueryCache()
+
+export default function App() {
+  const { setTotal, setCart } = useContext(CartContext)
+  const { activeCategory, data, setData } = useContext(CategoryContext)
+
+  const { error } = useQuery("repoData", () =>
+    fetch("https://project-indie-api.netlify.app/.netlify/functions/products")
+      .then(res => res.json())
+      .then(res => setData(res.products))
+  )
+
+  if (error) return "An error has occurred: " + error.message
+
   function add(product) {
     setCart(current => [
       ...current,
-      { name: product.name, price: product.price },
+      { name: product.name, price: product.unitCost },
     ])
-    setTotal(current => current + product.price)
+    setTotal(current => current + product.unitCost)
   }
 
-  // console.log(cart)
-
   return (
-    <div>
-      <h1>Food items</h1>
-      <div className="productsGrid">
-        {menu.map((product, index) => {
-          return (
-            <ul key={`${product.name}_${index}`}>
-              <div>
-                <li>{product.name}</li>
-                <div>
-                  {product.size === null ? null : <li>{product.size}</li>}
-                  <li>{product.price}</li>
-                </div>
-              </div>
-              <div>
-                {product.description === null ? null : (
-                  <li>{product.description}</li>
-                )}
-              </div>
-              <button onClick={() => add(product)}>add</button>
-            </ul>
-          )
-        })}
+    <ReactQueryCacheProvider queryCache={queryCache}>
+      <Categories />
+      <div>
+        <h2>{activeCategory.name}</h2>
+        <ProductCardGrid>
+          {data
+            .filter(product => product.category.includes(activeCategory.id))
+            .map((product, index) => (
+              <ProductCard key={`${product.name}_${index}`}>
+                <ProductName size="medium" color="dark">
+                  {product.name}
+                </ProductName>
+                <Price size="small" color="dark" amount={product.unitCost} />
+                <button onClick={() => add(product)}>add</button>
+              </ProductCard>
+            ))}
+        </ProductCardGrid>
       </div>
-    </div>
+    </ReactQueryCacheProvider>
   )
 }
-
-export default Products

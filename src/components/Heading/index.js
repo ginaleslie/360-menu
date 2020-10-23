@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import PropTypes from "prop-types"
+import React from "react"
 
 const Heading = ({ children }) => (
-  <h1 style={{ color: 'hotpink' }}>{children}</h1>
+  <h1 style={{ color: "hotpink" }}>{children}</h1>
 )
 
 Heading.propTypes = {

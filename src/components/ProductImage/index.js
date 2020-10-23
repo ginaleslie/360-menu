@@ -1,10 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import './styles.css'
+import React from "react"
+import PropTypes from "prop-types"
+import styled from "styled-components"
+
+const ProductImageStyled = styled.img`
+  width: 100%;
+  height: auto;
+`
 
 const ProductImage = ({ image, name }) => (
-  <img className="ProductImage" src={image} alt={name} />
+  <ProductImageStyled src={image} alt={name} />
 )
+
 ProductImage.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
