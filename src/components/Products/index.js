@@ -17,6 +17,7 @@ const Products = () => {
   // console.log(cart)
 
   return (
+<<<<<<< Updated upstream
     <div>
       <h1>Food items</h1>
       <div className="productsGrid">
@@ -39,6 +40,25 @@ const Products = () => {
             </ul>
           )
         })}
+=======
+    <ReactQueryCacheProvider queryCache={queryCache}>
+      <Categories />
+      <div>
+        <h2>{activeCategory.name}</h2>
+        <ProductCardGrid>
+          {data
+            .filter(product => product.category.includes(activeCategory.id))
+            .map((product, index) => (
+              <ProductCard key={`${product.name}_${index}`}>
+                <ProductName size="medium" color="light">
+                  {product.name}
+                </ProductName>
+                <Price size="small" color="dark" amount={product.unitCost} />
+                <button onClick={() => add(product)}>add</button>
+              </ProductCard>
+            ))}
+        </ProductCardGrid>
+>>>>>>> Stashed changes
       </div>
     </div>
   )

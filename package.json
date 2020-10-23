@@ -18,7 +18,15 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+<<<<<<< Updated upstream
     "gatsby": "^2.24.67",
+=======
+    "axios": "^0.20.0",
+    "babel-plugin-styled-components": "^1.11.1",
+    "gatsby": "^2.24.67",
+    "gatsby-plugin-styled-components": "^3.3.14",
+    "prop-types": "^15.7.2",
+>>>>>>> Stashed changes
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "prop-types": "^15.7.2"
