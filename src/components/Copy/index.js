@@ -1,24 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import './styles.css'
+import React from "react"
+import PropTypes from "prop-types"
+import { Text } from "./styles.js"
 
-const Copy = ({ children, size }) => (
-  <div className={`Copy-${size}`}>{children}</div>
+const Copy = ({ children, size, color }) => (
+  <Text size={size} color={color}>
+    {children}
+  </Text>
 )
 
 Copy.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]).isRequired,
-  /**
-   * small: 12px, medium: 16px, large: 20px
-   */
-  size: PropTypes.oneOf(['small', 'medium', 'large']),
+  children: PropTypes.node,
+  size: PropTypes.oneOf(["xsmall", "small"]),
+  color: PropTypes.oneOf(["grayOne", "grayTwo", "grayThree"]),
 }
 
 Copy.defaultProps = {
-  size: 'medium',
+  size: "small",
+  color: "grayThree",
 }
 
 export default Copy

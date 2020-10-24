@@ -6,8 +6,11 @@ export const Logo = styled.div`
   display: flex;
 `
 export const SideBar = styled.div`
-  background: ${props => props.theme.colors.dark};
+  background: ${props => props.theme.colors.secondary};
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
 export const LoadingPage = styled.div`
   background-color: white;

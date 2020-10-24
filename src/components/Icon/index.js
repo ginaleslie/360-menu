@@ -10,7 +10,7 @@ import Salad from "./assets/salad"
 import Logo from "./assets/logo"
 import Waiter from "./assets/waiter"
 
-const Icon = ({ name, size }) => {
+const Icon = ({ name, size, iconColor }) => {
   let iconSize
   switch (size) {
     case "small":
@@ -57,7 +57,13 @@ const Icon = ({ name, size }) => {
       content = <Logo width={`${iconSize}px`} height={`${iconSize}px`} />
       break
     case "WAITER":
-      content = <Waiter width={`${iconSize}px`} height={`${iconSize}px`} />
+      content = (
+        <Waiter
+          width={`${iconSize}px`}
+          height={`${iconSize}px`}
+          color={`${currentColor}`}
+        />
+      )
       break
 
     default:
@@ -70,7 +76,6 @@ const Icon = ({ name, size }) => {
         fontSize: `${iconSize}px`,
         height: `${iconSize}px`,
         width: `${iconSize}px`,
-        color: "white",
       }}
     >
       {content}
@@ -84,7 +89,8 @@ Icon.propTypes = {
 }
 
 Icon.defaultProps = {
-  size: "medium",
+  size: "large",
+  iconColor: "white",
 }
 
 export default Icon

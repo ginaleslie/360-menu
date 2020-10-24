@@ -2,14 +2,15 @@ import styled from "styled-components"
 
 export const Button = styled.button`
   width: 100%;
+  max-width: 100px;
+  max-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   border: none;
-  padding: 1rem;
+  padding: 15px;
   margin: 0;
   text-decoration: none;
-  //background: ${props => props.theme.colors[props.bg]};
   background-color: ${props => props.theme.colors[props.bg]};
   cursor: pointer;
   text-align: center;
@@ -19,7 +20,7 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background: ${props => props.theme.colors.darkHover};
+    background: ${props => props.theme.colors[props.bgHover]};
   }
 
   &:focus {
@@ -31,11 +32,6 @@ export const Button = styled.button`
     transform: scale(0.99);
   }
 `
-export const Center = styled.div`
+export const Styled = styled.div`
   display: inline-flex;
-`
-export const Text = styled.p`
-  color: ${props => props.theme.colors[props.color]};
-  font-size: ${props => props.theme.fontSizes.xsmall};
-  line-height: ${props => props.theme.fontSizes.xlarge};
 `

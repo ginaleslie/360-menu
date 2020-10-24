@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks"
+import CategoryName from "./"
+
+<Meta title="360 Menu/Category Name" component={CategoryName} />
+
+# Default:
+
+<Canvas>
+  <Story name="default">
+    <CategoryName color="secondary">Lorem ipsum dolor</CategoryName>
+  </Story>
+</Canvas>
+
+# Sizes:
+
+## Extra small:
+
+<Canvas>
+  <Story name="xsmall">
+    <CategoryName size="xsmall" color="secondary">
+      Lorem ipsum dolor
+    </CategoryName>
+  </Story>
+</Canvas>
+
+## Small:
+
+<Canvas>
+  <Story name="small">
+    <CategoryName size="small" color="secondary">
+      Lorem ipsum dolor
+    </CategoryName>
+  </Story>
+</Canvas>

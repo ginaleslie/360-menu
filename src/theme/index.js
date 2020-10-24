@@ -5,9 +5,12 @@ const theme = {
   name: "default",
   colors: {
     primary: "#E54A2D",
-    light: "#FFFFFF",
-    dark: "#222222",
-    darkHover: "#000000",
+    secondary: "#222222",
+    secondaryHover: "#000000",
+    white: "#FFFFFF",
+    grayOne: "#4F4F4F",
+    grayTwo: "#828282",
+    grayThree: "#BDBDBD",
   },
   fonts: ["sans-serif"],
   fontSizes: {

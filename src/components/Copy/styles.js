@@ -1,10 +1,8 @@
 import styled from "styled-components"
-import "typeface-lora"
+import "typeface-work-sans"
 
-const ProductNameText = styled.p`
+export const Text = styled.p`
   font-size: ${props => props.theme.fontSizes[props.size]};
   color: ${props => props.theme.colors[props.color]};
-  font-family: "Lora", georgia, serif;
+  font-family: "Work Sans", sans-serif;
 `
-
-export default ProductNameText

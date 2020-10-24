@@ -8,7 +8,7 @@ export const ProductCard = styled.div`
   transition: all 0.2s ease;
 
   &:hover {
-    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.14);
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.17);
   }
 `
 export const ProductCardGrid = styled.div`

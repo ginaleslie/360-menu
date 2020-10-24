@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react"
-import CartContext from "../../context/Cart"
+import React, { useContext } from "react"
+import ApplicationContext from "../../context/Application"
 import { useQuery, QueryCache, ReactQueryCacheProvider } from "react-query"
-import Categories from "../Categories"
+
 import "../Styles/index.css"
-import CategoryContext from "../../context/Category"
+
 import ProductName from "../ProductName"
 import Price from "../Price"
 import { ProductCard, ProductCardGrid } from "./styles"
@@ -11,13 +11,18 @@ import { ProductCard, ProductCardGrid } from "./styles"
 const queryCache = new QueryCache()
 
 export default function App() {
-  const { setTotal, setCart } = useContext(CartContext)
-  const { activeCategory, data, setData } = useContext(CategoryContext)
+  const {
+    setTotal,
+    setCart,
+    activeCategory,
+    products,
+    setProducts,
+  } = useContext(ApplicationContext)
 
-  const { error } = useQuery("repoData", () =>
+  const { error } = useQuery("productData", () =>
     fetch("https://project-indie-api.netlify.app/.netlify/functions/products")
       .then(res => res.json())
-      .then(res => setData(res.products))
+      .then(res => setProducts(res.products))
   )
 
   if (error) return "An error has occurred: " + error.message
@@ -32,17 +37,15 @@ export default function App() {
 
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
-      <Categories />
       <div>
         <h2>{activeCategory.name}</h2>
+
         <ProductCardGrid>
-          {data
+          {products
             .filter(product => product.category.includes(activeCategory.id))
             .map((product, index) => (
               <ProductCard key={`${product.name}_${index}`}>
-                <ProductName size="medium" color="dark">
-                  {product.name}
-                </ProductName>
+                <ProductName>{product.name}</ProductName>
                 <Price size="small" color="dark" amount={product.unitCost} />
                 <button onClick={() => add(product)}>add</button>
               </ProductCard>

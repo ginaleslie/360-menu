@@ -4,38 +4,43 @@ import "../components/Styles/index.css"
 import Cart from "../components/Cart"
 import Products from "../components/Products"
 
-import CartContext from "../context/Cart"
-import CategoryContext from "../context/Category"
+import ApplicationContext from "../context/Application"
+
 import GlobalStyle from "../globalStyle"
 import Theme from "../theme"
-// import Categories from "../components/Categories"
+import Categories from "../components/Categories"
 
 const Home = () => {
-  const [data, setData] = useState([])
+  const [products, setProducts] = useState([])
   const [cart, setCart] = useState([])
   const [total, setTotal] = useState(0)
   const [categories, setCategories] = useState([])
   const [activeCategory, setActiveCategory] = useState({})
+  const [pastOrders, setPastOrders] = useState([])
   return (
     <Theme>
       <GlobalStyle />
       <div className="homeGrid">
-        <CartContext.Provider value={{ total, setTotal, cart, setCart }}>
-          <CategoryContext.Provider
-            value={{
-              categories,
-              setCategories,
-              activeCategory,
-              setActiveCategory,
-              data,
-              setData,
-            }}
-          >
-            {/* <Categories /> */}
-            <Products />
-            <Cart />
-          </CategoryContext.Provider>
-        </CartContext.Provider>
+        <ApplicationContext.Provider
+          value={{
+            total,
+            setTotal,
+            cart,
+            setCart,
+            categories,
+            setCategories,
+            activeCategory,
+            setActiveCategory,
+            products,
+            setProducts,
+            pastOrders,
+            setPastOrders,
+          }}
+        >
+          <Categories />
+          <Products />
+          <Cart />
+        </ApplicationContext.Provider>
       </div>
     </Theme>
   )

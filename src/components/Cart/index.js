@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import CartContext from "../../context/Cart"
+import ApplicationContext from "../../context/Application"
 
 function getTotal(total) {
   if (total < 0) {
@@ -9,8 +9,14 @@ function getTotal(total) {
 }
 
 const Cart = () => {
-  const { cart, total, setCart, setTotal } = useContext(CartContext)
-  const [pastOrders, setPastOrders] = useState([])
+  const {
+    cart,
+    total,
+    setCart,
+    setTotal,
+    pastOrders,
+    setPastOrders,
+  } = useContext(ApplicationContext)
 
   const remove = product => {
     setCart(current => current.filter(index => index !== product))

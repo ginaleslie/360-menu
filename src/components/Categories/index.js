@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
 import { useQuery } from "react-query"
-import CategoryContext from "../../context/Category"
+import ApplicationContext from "../../context/Application"
 import { LoadingPage, LoadingEllipsis, SideBar, Logo } from "./styles"
 import Icon from "../Icon"
 import CategoryButton from "../CategoryButton"
 
 const Categories = () => {
   const { setCategories, categories, setActiveCategory } = useContext(
-    CategoryContext
+    ApplicationContext
   )
 
   const { isLoading, error } = useQuery("repoData", () =>
@@ -39,25 +39,28 @@ const Categories = () => {
       <Logo>
         <Icon name="LOGO" size="xlarge" />
       </Logo>
-      {categories.map(category => {
-        return (
-          <div key={category.id}>
-            <CategoryButton
-              click={() => {
-                setActiveCategory(category)
-              }}
-              text={category.name}
-              color={category ? "light" : "primary"}
-              icon={<Icon name={category.icon} size="large" />}
-            />
-          </div>
-        )
-      })}
-      <CategoryButton
-        text="Waiter"
-        color="light"
-        icon={<Icon name="WAITER" size="large" bg="primary" />}
-      />
+      <div>
+        {categories.map(category => {
+          return (
+            <div key={category.id}>
+              <CategoryButton
+                click={() => {
+                  setActiveCategory(category)
+                }}
+                text={category.name}
+                color={category ? "white" : "primary"}
+                icon={category.icon}
+              />
+            </div>
+          )
+        })}
+        <CategoryButton
+          text="Waiter"
+          icon="WAITER"
+          bg="primary"
+          bgHover="primary"
+        />
+      </div>
     </SideBar>
   )
 }

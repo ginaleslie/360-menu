@@ -10,12 +10,12 @@ const ProductName = ({ children, size, color }) => (
 
 ProductName.propTypes = {
   size: PropTypes.oneOf(["medium", "large"]),
-  color: PropTypes.oneOf(["light", "dark"]),
+  color: PropTypes.oneOf(["white", "secondary", "grayOne"]),
   children: PropTypes.node,
 }
 ProductName.defaultProps = {
   size: "medium",
-  color: "dark",
+  color: "secondary",
 }
 
 export default ProductName
