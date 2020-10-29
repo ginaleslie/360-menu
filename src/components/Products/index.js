@@ -1,23 +1,21 @@
 import React, { useContext } from "react"
-import ApplicationContext from "../../context/Application"
+import ProductsContext from "../../context/Products"
+
 import { useQuery, QueryCache, ReactQueryCacheProvider } from "react-query"
 
 import "../Styles/index.css"
+import FoodCard from "../FoodCard"
+import DrinkCard from "../DrinkCard"
+import Heading from "../Heading"
 
-import ProductName from "../ProductName"
-import Price from "../Price"
-import { ProductCard, ProductCardGrid } from "./styles"
+import { CardGrid, Container, Scroll } from "./styles"
 
 const queryCache = new QueryCache()
 
 export default function App() {
-  const {
-    setTotal,
-    setCart,
-    activeCategory,
-    products,
-    setProducts,
-  } = useContext(ApplicationContext)
+  const { products, setProducts, activeCategory, setIsSelected } = useContext(
+    ProductsContext
+  )
 
   const { error } = useQuery("productData", () =>
     fetch("https://project-indie-api.netlify.app/.netlify/functions/products")
@@ -27,31 +25,43 @@ export default function App() {
 
   if (error) return "An error has occurred: " + error.message
 
-  function add(product) {
-    setCart(current => [
-      ...current,
-      { name: product.name, price: product.unitCost },
-    ])
-    setTotal(current => current + product.unitCost)
-  }
-
+  console.log(activeCategory)
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
-      <div>
-        <h2>{activeCategory.name}</h2>
+      <Scroll>
+        <Container>
+          <Heading size="large" color="primary" paddingBtm="xlarge">
+            Table 19
+          </Heading>
+          <Heading paddingBtm="large">{activeCategory.name} Menu</Heading>
 
-        <ProductCardGrid>
-          {products
-            .filter(product => product.category.includes(activeCategory.id))
-            .map((product, index) => (
-              <ProductCard key={`${product.name}_${index}`}>
-                <ProductName>{product.name}</ProductName>
-                <Price size="small" color="dark" amount={product.unitCost} />
-                <button onClick={() => add(product)}>add</button>
-              </ProductCard>
-            ))}
-        </ProductCardGrid>
-      </div>
+          <CardGrid>
+            {activeCategory.name === "Drink"
+              ? products
+                  .filter(
+                    product =>
+                      product.category.includes(activeCategory.id) &&
+                      activeCategory.id === "recEG6YAEjBY5aQaM"
+                  )
+                  .map((product, index) => (
+                    <DrinkCard
+                      key={`${product.name}_${index}`}
+                      product={product}
+                    ></DrinkCard>
+                  ))
+              : products
+                  .filter(product =>
+                    product.category.includes(activeCategory.id)
+                  )
+                  .map((product, index) => (
+                    <FoodCard
+                      key={`${product.name}_${index}`}
+                      product={product}
+                    ></FoodCard>
+                  ))}
+          </CardGrid>
+        </Container>
+      </Scroll>
     </ReactQueryCacheProvider>
   )
 }

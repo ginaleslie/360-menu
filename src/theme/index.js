@@ -12,13 +12,29 @@ const theme = {
     grayTwo: "#828282",
     grayThree: "#BDBDBD",
   },
-  fonts: ["sans-serif"],
   fontSizes: {
     xsmall: "12px",
     small: "14px",
     medium: "16px",
     large: "20px",
     xlarge: "24px",
+  },
+  padding: {
+    xsmall: "7px",
+    small: "12px",
+    medium: "20px",
+    large: "30px",
+    xlarge: "40px",
+  },
+  image: {
+    widthFood: "105px",
+    borderFood: "5px 0 0 5px",
+    widthDrink: "178px",
+    borderDrink: "5px 5px 0 0",
+    widthCart: "390px",
+    minCart: "150px",
+    borderCart: "0 0 0 50px",
+    heightCart: "200px",
   },
 }
 

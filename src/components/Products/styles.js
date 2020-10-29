@@ -1,19 +1,29 @@
 import styled from "styled-components"
 
-export const ProductCard = styled.div`
-  background: ${props => props.theme.colors.light};
-  border: 1px solid #f2f2f2;
-  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.07);
-  border-radius: 6px;
-  transition: all 0.2s ease;
-
-  &:hover {
-    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.17);
-  }
-`
-export const ProductCardGrid = styled.div`
+export const CardGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 23px;
+  @media (max-width: 1108px) {
+    grid-template-columns: 1fr;
+  }
+`
+export const Scroll = styled.div`
+  height: 100vh;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+`
+export const Container = styled.div`
   padding: 40px;
-  grid-gap: 15px;
 `

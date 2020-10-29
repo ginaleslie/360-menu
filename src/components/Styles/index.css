@@ -1,7 +1,7 @@
 .homeGrid {
   display: grid;
-  grid-template-columns: 95px 1.3fr .7fr;
-  font-family: sans-serif;
+  grid-template-columns: 95px 1.35fr 0.65fr;
+  /* font-family: sans-serif; */
 }
 .productsGrid {
   display: grid;

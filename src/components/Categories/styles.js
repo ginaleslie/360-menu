@@ -8,8 +8,10 @@ export const Logo = styled.div`
 export const SideBar = styled.div`
   background: ${props => props.theme.colors.secondary};
   height: 100vh;
+
   display: flex;
   flex-direction: column;
+
   justify-content: space-between;
 `
 export const LoadingPage = styled.div`
@@ -17,6 +19,7 @@ export const LoadingPage = styled.div`
   width: 100vw;
   height: 100vh;
   position: absolute;
+  z-index: 100;
   margin: 0;
   padding: 0;
   text-align: center;

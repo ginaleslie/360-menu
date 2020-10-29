@@ -1,19 +1,27 @@
 import React from "react"
 import PropTypes from "prop-types"
-import styled from "styled-components"
+import { Image, Container } from "./styles"
 
-const ProductImageStyled = styled.img`
-  width: 100%;
-  height: auto;
-`
-
-const ProductImage = ({ image, name }) => (
-  <ProductImageStyled src={image} alt={name} />
+const ProductImage = ({
+  source,
+  alt,
+  maxWidth,
+  borderRad,
+  minWidth,
+  maxHeight,
+}) => (
+  <Container maxWidth={maxWidth} minWidth={minWidth}>
+    <Image src={source} alt={alt} borderRad={borderRad} maxHeight={maxHeight} />
+  </Container>
 )
 
 ProductImage.propTypes = {
-  image: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  source: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  maxHeight: PropTypes.oneOf(["heightCart"]),
+  maxWidth: PropTypes.oneOf(["widthFood", "widthDrink", "widthCart"]),
+  minWidth: PropTypes.oneOf(["widthFood", "widthDrink", "minCart"]),
+  borderRad: PropTypes.oneOf(["borderFood", "borderDrink", "borderCart"]),
 }
 
 export default ProductImage

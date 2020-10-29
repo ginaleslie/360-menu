@@ -1,13 +1,13 @@
 import React, { useContext } from "react"
 import { useQuery } from "react-query"
-import ApplicationContext from "../../context/Application"
+import ProductsContext from "../../context/Products"
 import { LoadingPage, LoadingEllipsis, SideBar, Logo } from "./styles"
 import Icon from "../Icon"
 import CategoryButton from "../CategoryButton"
 
 const Categories = () => {
   const { setCategories, categories, setActiveCategory } = useContext(
-    ApplicationContext
+    ProductsContext
   )
 
   const { isLoading, error } = useQuery("repoData", () =>
@@ -15,7 +15,7 @@ const Categories = () => {
       .then(res => res.json())
       .then(res => {
         setCategories(res.categories)
-        setActiveCategory(res.categories[2])
+        setActiveCategory(res.categories[0])
       })
   )
 

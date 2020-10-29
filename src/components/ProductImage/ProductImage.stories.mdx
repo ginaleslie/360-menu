@@ -1,13 +1,37 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import ProductImage from './'
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks"
+import ProductImage from "./"
 
 <Meta title="360 Menu/Product Image" component={ProductImage} />
 
-<Story name="default">
-    <div style={{width: '20px', height: '1000px', objectFit: 'cover', overflow: 'hidden'}}>
-        <ProductImage 
-            image="https://minimalistbaker.com/wp-content/uploads/2016/05/THE-BEST-Vegan-Chocolate-Ice-Cream-SO-creamy-rich-and-easy-to-make-vegan-glutenfree-icecream-dessert-chocolate-recipe-summer.jpg" 
-            name="ice cream"
-        />
-    </div>
+# Food image and styling :
+
+<Story name="food">
+  <ProductImage
+    source="https://dl.airtable.com/.attachmentThumbnails/d6177c7725fd79953568c8a914b14ef3/05a8b4ec.png"
+    maxWidth="widthFood"
+    borderRad="borderFood"
+    alt="image"
+  />
+</Story>
+
+# Drink image and styling :
+
+<Story name="drink">
+  <ProductImage
+    source="https://dl.airtable.com/.attachmentThumbnails/d6177c7725fd79953568c8a914b14ef3/05a8b4ec.png"
+    maxWidth="widthDrink"
+    borderRad="borderDrink"
+    alt="image"
+  />
+</Story>
+
+# Cart image and styling :
+
+<Story name="cart">
+  <ProductImage
+    source="https://dl.airtable.com/.attachmentThumbnails/d6177c7725fd79953568c8a914b14ef3/05a8b4ec.png"
+    maxWidth="widthCart"
+    borderRad="borderCart"
+    alt="image"
+  />
 </Story>

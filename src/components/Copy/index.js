@@ -15,7 +15,7 @@ Copy.propTypes = {
 }
 
 Copy.defaultProps = {
-  size: "small",
+  size: "xsmall",
   color: "grayThree",
 }
 

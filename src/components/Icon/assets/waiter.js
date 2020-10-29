@@ -5,7 +5,7 @@ function SvgWaiter(props) {
     <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" {...props}>
       <path
         d="M14.5 3h-5v1h5V3zM12.5 7V4h-1v3h1z"
-        stroke="#fff"
+        stroke="currentColor"
         strokeWidth={2}
         strokeMiterlimit={10}
         strokeLinecap="round"
@@ -13,7 +13,7 @@ function SvgWaiter(props) {
       />
       <path
         d="M21 18H3v-2a9 9 0 0118 0v2zM22 18H2v3h20v-3z"
-        stroke="#fff"
+        stroke="currentColor"
         strokeWidth={2}
         strokeMiterlimit={10}
         strokeLinecap="round"
@@ -24,4 +24,3 @@ function SvgWaiter(props) {
 }
 
 export default SvgWaiter
-
