@@ -1,9 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import PriceText from "./styles"
+import { PriceText } from "./styles"
 
 const Price = ({ amount, size, currency, color, paddingRight }) => {
-  // TODO: make signDisplay work
   const formattedAmount = new Intl.NumberFormat("en-ZA", {
     style: "currency",
     currency,

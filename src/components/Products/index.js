@@ -3,7 +3,6 @@ import ProductsContext from "../../context/Products"
 
 import { useQuery, QueryCache, ReactQueryCacheProvider } from "react-query"
 
-import "../Styles/index.css"
 import FoodCard from "../FoodCard"
 import DrinkCard from "../DrinkCard"
 import Heading from "../Heading"

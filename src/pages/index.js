@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import "../components/Styles/index.css"
+import { HomeGrid } from "../components/Styles/index.js"
 
 import Cart from "../components/Cart"
 import Products from "../components/Products"
@@ -10,7 +10,7 @@ import CartContext from "../context/Cart"
 import GlobalStyle from "../globalStyle"
 import Theme from "../theme"
 import Categories from "../components/Categories"
-import Copy from "../components/Copy"
+
 import EditProduct from "../components/EditProduct"
 
 const Home = () => {
@@ -18,17 +18,7 @@ const Home = () => {
   const [total, setTotal] = useState(0)
   const [categories, setCategories] = useState([])
   const [activeCategory, setActiveCategory] = useState({})
-  // const [isSelected, setIsSelected] = useState(false)
 
-  // // stores Product details
-  // const [editOrder, setEditOrder] = useState([])
-
-  // // adds order to cart
-  // const [newOrders, setNewOrders] = useState([])
-
-  // const [activeOrders, setActiveOrders] = useState([])
-
-  // this stores the currently selected/active product
   const [activeProduct, setActiveProduct] = useState(null)
 
   // everything on the orders list
@@ -58,7 +48,7 @@ const Home = () => {
   return (
     <Theme>
       <GlobalStyle />
-      <div className="homeGrid" id="root">
+      <HomeGrid>
         <ProductsContext.Provider
           value={{
             categories,
@@ -87,7 +77,7 @@ const Home = () => {
             {Boolean(activeProduct) ? <EditProduct /> : <Cart />}
           </CartContext.Provider>
         </ProductsContext.Provider>
-      </div>
+      </HomeGrid>
     </Theme>
   )
 }
