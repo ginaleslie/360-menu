@@ -10,16 +10,8 @@ import Price from "../Price"
 const ActiveOrders = () => {
   const { orders } = useContext(CartContext)
 
-  function getTotal(total) {
-    if (total < 0) {
-      total *= -1
-    }
-    return total
-  }
-
   return (
     <Padding>
-      {/* <div>Total: {getTotal(total)}</div> */}
       <SubHeading color="white" paddingBtm="medium">
         {orders.filter(order => order.type === "active").length} Active orders
       </SubHeading>

@@ -12,9 +12,7 @@ import { CardGrid, Container, Scroll } from "./styles"
 const queryCache = new QueryCache()
 
 export default function App() {
-  const { products, setProducts, activeCategory, setIsSelected } = useContext(
-    ProductsContext
-  )
+  const { products, setProducts, activeCategory } = useContext(ProductsContext)
 
   const { error } = useQuery("productData", () =>
     fetch("https://project-indie-api.netlify.app/.netlify/functions/products")

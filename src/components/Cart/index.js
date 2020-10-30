@@ -7,26 +7,7 @@ import CartBtn from "../CartBtn"
 import Heading from "../Heading"
 
 const Cart = ({ removeProduct }) => {
-  const {
-    newOrders,
-    setNewOrders,
-    setActiveOrders,
-    activeOrders,
-    updateNewOrdersToActive,
-    orders,
-  } = useContext(CartContext)
-
-  // const setOrder = () => {
-  //   if (activeOrders.length === 0) {
-  //     setActiveOrders(newOrders)
-  //   } else {
-  //     setActiveOrders(current => [...current, newOrders].flat())
-  //     // setTotal(current => current + product.unitCost)
-  //   }
-
-  //   setNewOrders([])
-  // }
-  // console.log(activeOrders)
+  const { updateNewOrdersToActive, orders } = useContext(CartContext)
 
   return (
     <div>

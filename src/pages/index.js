@@ -15,7 +15,7 @@ import EditProduct from "../components/EditProduct"
 
 const Home = () => {
   const [products, setProducts] = useState([])
-  const [total, setTotal] = useState(0)
+
   const [categories, setCategories] = useState([])
   const [activeCategory, setActiveCategory] = useState({})
 
@@ -63,8 +63,6 @@ const Home = () => {
         >
           <CartContext.Provider
             value={{
-              total,
-              setTotal,
               orders,
               setOrders,
               removeOrderAtIndex,
