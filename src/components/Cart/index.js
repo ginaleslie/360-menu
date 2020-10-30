@@ -6,7 +6,7 @@ import NewOrders from "../NewOrders"
 import CartBtn from "../CartBtn"
 import Heading from "../Heading"
 
-const Cart = ({ removeProduct }) => {
+const Cart = () => {
   const { updateNewOrdersToActive, orders } = useContext(CartContext)
 
   return (
