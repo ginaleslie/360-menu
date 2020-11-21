@@ -40,11 +40,17 @@ const Home = () => {
   const addToOrders = product => setOrders([...orders, product])
 
   const removeOrderAtIndex = index => {
-    const newOrders = [...orders]
-    newOrders.splice(index, 1)
-    setOrders(newOrders)
-  }
+    const oldOrders = [...orders.filter(order => order.type === "active")]
 
+    const newOrders = [...orders.filter(order => order.type === "new")]
+
+    // const newOrdersE = newOrders.filter(({ id }) => id !== index)
+    newOrders.splice(index, 1)
+    // setOrders(newOrders)
+    setOrders([...oldOrders, ...newOrders])
+    console.log(orders)
+  }
+  //console.log(orders)
   return (
     <Theme>
       <GlobalStyle />
