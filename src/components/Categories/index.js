@@ -6,9 +6,12 @@ import Icon from "../Icon"
 import CategoryButton from "../CategoryButton"
 
 const Categories = () => {
-  const { setCategories, categories, setActiveCategory } = useContext(
-    ProductsContext
-  )
+  const {
+    setCategories,
+    categories,
+    setActiveCategory,
+    activeCategory,
+  } = useContext(ProductsContext)
 
   const { isLoading, error } = useQuery("repoData", () =>
     fetch("https://project-indie-api.netlify.app/.netlify/functions/categories")
@@ -32,7 +35,6 @@ const Categories = () => {
     )
 
   if (error) return "An error has occurred: " + error.message
-  console.log(categories)
 
   return (
     <SideBar>
@@ -48,8 +50,22 @@ const Categories = () => {
                   setActiveCategory(category)
                 }}
                 text={category.name}
-                color={category ? "white" : "primary"}
+                color={
+                  activeCategory !== category && category.Products
+                    ? "white"
+                    : activeCategory !== category && !category.Products
+                    ? "grayOne"
+                    : "primary"
+                }
                 icon={category.icon}
+                iconColor={
+                  activeCategory !== category && category.Products
+                    ? "white"
+                    : activeCategory !== category && !category.Products
+                    ? "grayOne"
+                    : "primary"
+                }
+                disabled={!category.Products}
               />
             </div>
           )

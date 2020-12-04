@@ -10,7 +10,7 @@ const CategoryName = ({ children, size, color }) => (
 
 CategoryName.propTypes = {
   size: PropTypes.oneOf(["xsmall", "small"]),
-  color: PropTypes.oneOf(["white", "primary", "secondary"]),
+  color: PropTypes.oneOf(["white", "primary", "secondary", "grayOne"]),
   children: PropTypes.node,
 }
 CategoryName.defaultProps = {

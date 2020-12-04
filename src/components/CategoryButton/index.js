@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Button, Styled } from "./styles"
 import Icon from "../Icon"
 import CategoryName from "../CategoryName"
+import ProductsContext from "../../context/Products"
 
 const CategoryButton = ({
   icon,
@@ -11,16 +12,20 @@ const CategoryButton = ({
   color,
   bg,
   bgHover,
-}) => (
-  <Button onClick={click} bg={bg} bgHover={bgHover}>
-    <div>
-      <Styled>
-        <Icon name={icon} size={iconSize} />
-      </Styled>
-      <CategoryName color={color}>{text}</CategoryName>
-    </div>
-  </Button>
-)
+  disabled,
+  iconColor,
+}) => {
+  return (
+    <Button onClick={click} bg={bg} bgHover={bgHover} disabled={disabled}>
+      <div>
+        <Styled>
+          <Icon name={icon} size={iconSize} color={iconColor} />
+        </Styled>
+        <CategoryName color={color}>{text}</CategoryName>
+      </div>
+    </Button>
+  )
+}
 
 CategoryButton.defaultProps = {
   color: "white",
@@ -30,6 +35,7 @@ CategoryButton.defaultProps = {
   bg: "secondary",
   bgHover: "secondaryHover",
   click: () => alert("Clicked"),
+  disabled: false,
 }
 
 export default CategoryButton

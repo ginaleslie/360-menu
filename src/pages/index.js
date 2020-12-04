@@ -46,11 +46,10 @@ const Home = () => {
 
     // const newOrdersE = newOrders.filter(({ id }) => id !== index)
     newOrders.splice(index, 1)
-    // setOrders(newOrders)
+
     setOrders([...oldOrders, ...newOrders])
-    console.log(orders)
   }
-  //console.log(orders)
+
   return (
     <Theme>
       <GlobalStyle />

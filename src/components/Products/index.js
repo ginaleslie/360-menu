@@ -22,7 +22,6 @@ export default function App() {
 
   if (error) return "An error has occurred: " + error.message
 
-  console.log(activeCategory)
   return (
     <ReactQueryCacheProvider queryCache={queryCache}>
       <Scroll>

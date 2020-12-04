@@ -32,8 +32,16 @@ const NewOrders = () => {
                 </Button>
               </Box>
               <BoxTwo>
-                <Copy>{}</Copy>
-                <Price color="white" amount={product.unitCost}></Price>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Icon name="PENCIL" color="white" size="medium" />{" "}
+                  <div style={{ paddingLeft: "10px" }}>
+                    {" "}
+                    <Copy>{product.note}</Copy>
+                  </div>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <Price color="white" amount={product.unitCost}></Price>
+                </div>
               </BoxTwo>
               <Line />
             </div>

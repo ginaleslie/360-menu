@@ -18,8 +18,6 @@ const DrinkCard = ({
 
   const { activeCategory } = useContext(ProductsContext)
 
-  console.log(activeCategory)
-
   return (
     <Card>
       {Boolean(product?.images?.[0].thumbnails.large) ? (

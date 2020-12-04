@@ -6,8 +6,8 @@ export const Box = styled.div`
 `
 export const BoxTwo = styled.div`
   display: flex;
-  justify-content: flex-end;
-  padding: 10px 0;
+  justify-content: space-between;
+  padding: 17px 0;
 `
 export const Button = styled.button`
   background: #000000;

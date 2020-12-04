@@ -25,9 +25,9 @@ const EditProduct = () => {
   )
   const { addToOrders } = useContext(CartContext)
   const [note, setNote] = useState("")
-  const updateNote = e => setNote(e.target.value)
+  // const updateNote = e => setNote(e.target.value)
+  console.log(addToOrders)
 
-  console.log(activeCategory)
   return (
     <SideBar>
       <PaddingImage>
@@ -56,7 +56,7 @@ const EditProduct = () => {
           <div>
             <SubHeading color="white">Special Instructions</SubHeading>
             <Input
-              onChange={updateNote}
+              onChange={e => setNote(e.target.value)}
               placeholder="Add a note (e.g. no onions, extra sauce)"
             />
           </div>
@@ -64,8 +64,13 @@ const EditProduct = () => {
       </Scroll>
       <CartBtn
         click={() => {
-          addToOrders({ ...activeProduct, type: "new", note })
-          setActiveProduct(null)
+          if (note !== "") {
+            addToOrders({ ...activeProduct, type: "new", note: note })
+            setActiveProduct(null)
+          } else {
+            addToOrders({ ...activeProduct, type: "new", note: "-" })
+            setActiveProduct(null)
+          }
         }}
       >
         Add to cart
